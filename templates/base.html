@@ -22,12 +22,8 @@
                 <img src="{{ url_for('static', filename='img/tsyp13.png') }}" alt="TSYP Logo" width="120">
             </div>
 
-            <div class="user-info mb-4 px-3 py-2 text-center">
-                <small class="text-muted">{{ session.username }}</small>
-            </div>
-
             {% include 'sidebar.html' %}
-            
+
         </div>
     </div>
 
@@ -38,15 +34,19 @@
             <div class="container-fluid px-4">
                 <div class="d-flex align-items-center justify-content-between w-100">
                     <div class="d-flex align-items-center">
-                        <button class="btn btn-link me-3" type="button" id="menuToggle">
-                            <i class="bi bi-list fs-4 menu-toggle" id="menuIcon"></i>
-                        </button>   
+                        <button class="btn btn-link me-3" type="button" id="menuToggle" aria-label="Toggle menu">
+                            <i class="bi bi-list fs-4" id="menuIcon"></i>
+                        </button>
+                        <div class="d-flex align-items-center">
+                            <span class="navbar-text">Welcome, {{ session.fullName }}!</span>
+                        </div>
                     </div>
 
                     <!-- Right Side: Logout Button -->
                     <div class="d-flex align-items-center gap-2">
                         <small class="text-muted">beta version</small>
-                        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm d-flex align-items-center">
+                        <a href="{{ url_for('logout') }}"
+                            class="btn btn-outline-danger btn-sm d-flex align-items-center">
                             <i class="bi bi-box-arrow-right me-2"></i>
                             <span class="d-none d-sm-inline">Logout</span>
                         </a>

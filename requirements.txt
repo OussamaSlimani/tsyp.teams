@@ -1,0 +1,9 @@
+Flask
+gunicorn
+jsonpatch
+jsonpointer
+jsonschema
+requests
+parsedatetime
+firebase-admin
+python-dotenv

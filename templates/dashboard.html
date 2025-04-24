@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card shadow mb-4">
+    <div class="card-header py-3 d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+        <h5 class="m-0 font-weight-bold">{{ team.capitalize() }} Team</h5>
+        <div class="mt-auto p-3 d-flex align-items-center gap-2">
+            <button class="d-flex align-items-center btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#resourcesModal">
+                <i class="bi bi-collection me-2"></i> Resources
+            </button>
+            <button class="d-flex align-items-center btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#taskModal">
+                <i class="bi bi-plus-circle me-2"></i> Add Task
+            </button>
+        </div>
+
+    </div>
+
+    <div class="card-body">
+        <!-- Filters -->
+        <div class="row gy-3 gx-4 mb-4">
+            <div class="col-12 col-md-4">
+                <label for="statusFilter" class="form-label fw-semibold">Status</label>
+                <select id="statusFilter" class="form-select shadow-sm" onchange="applyFilters()">
+                    <option value="">All Statuses</option>
+                    <option value="ideas" {% if current_status == 'ideas' %}selected{% endif %}>Ideas</option>
+                    <option value="to do" {% if current_status == 'to do' %}selected{% endif %}>To Do</option>
+                    <option value="in progress" {% if current_status == 'in progress' %}selected{% endif %}>In Progress</option>
+                    <option value="on stand by" {% if current_status == 'on stand by' %}selected{% endif %}>On Stand By</option>
+                    <option value="to validate" {% if current_status == 'to validate' %}selected{% endif %}>To Validate</option>
+                    <option value="done" {% if current_status == 'done' %}selected{% endif %}>Done</option>
+                </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="assigneeFilter" class="form-label fw-semibold">Assignee</label>
+                <select id="assigneeFilter" class="form-select shadow-sm" onchange="applyFilters()">
+                    <option value="">All Assignees</option>
+                    {% for assignee in assignees %}
+                    <option value="{{ assignee }}" {% if current_assignee == assignee %}selected{% endif %}>{{ assignee }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-12 col-md-4">
+                <label for="dateFilter" class="form-label fw-semibold">Date Range</label>
+                <select id="dateFilter" class="form-select shadow-sm" onchange="applyFilters()">
+                    <option value="">All Dates</option>
+                    <option value="week" {% if current_date_filter == 'week' %}selected{% endif %}>This Week</option>
+                    <option value="month" {% if current_date_filter == 'month' %}selected{% endif %}>This Month</option>
+                    <option value="overdue" {% if current_date_filter == 'overdue' %}selected{% endif %}>Overdue</option>
+                </select>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Tasks Table -->
+        <div class="table-responsive rounded-3 border">
+            <table class="table table-hover mb-0" id="dataTable">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-4">Task Name</th>
+                        <th>Description</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Assignees</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for task_id, task in tasks.items() %}
+                    <tr class="align-middle">
+                        <td class="ps-4 fw-semibold">{{ task.name }}</td>
+                        <td class="text-muted">
+                            {% if task.description %}
+                                {{ task.description|truncate(50) }}
+                            {% else %}
+                                No description
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if task.formatted_due_date %}
+                                {% if task.is_past_due and task.status not in ['done', 'to validate'] %}
+                                    <span class="text-danger d-flex align-items-center text-nowrap">
+                                        {{ task.formatted_due_date }}
+                                    </span>
+                                {% else %}
+                                    <span class="d-flex align-items-center text-nowrap">
+                                        {{ task.formatted_due_date }}
+                                    </span>
+                                {% endif %}
+                            {% else %}
+                                <span class="text-muted">No due</span>
+                            {% endif %}
+                        </td>                        
+                        <td>
+                            <span class="badge text-white rounded-pill d-inline-flex align-items-center py-1 px-3
+                                {% if task.status == 'done' %}bg-success
+                                {% elif task.status == 'in progress' %}bg-primary
+                                {% elif task.status == 'on stand by' %}bg-danger
+                                {% elif task.status == 'to validate' %}bg-warning
+                                {% elif task.status == 'ideas' %}bg-info
+                                {% else %}bg-secondary{% endif %}">
+                                <i class="bi me-2 fs-6
+                                    {% if task.status == 'done' %}bi-check-circle-fill
+                                    {% elif task.status == 'in progress' %}bi-hourglass-split
+                                    {% elif task.status == 'on stand by' %}bi-pause-circle-fill
+                                    {% elif task.status == 'to validate' %}bi-file-earmark-check
+                                    {% elif task.status == 'ideas' %}bi-lightbulb-fill
+                                    {% else %}bi-question-circle-fill{% endif %}">
+                                </i>
+                                <span class="text-capitalize">{{ task.status }}</span>
+                            </span>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-2">
+                                {% if task.assignees %}
+                                    {% for assignee in task.assignees %}
+                                    <span class="badge bg-light text-dark border d-flex align-items-center">
+                                        {{ assignee }}
+                                    </span>
+                                    {% endfor %}
+                                {% else %}
+                                    <span class="text-muted">No assignee</span>
+                                {% endif %}
+                            </div>
+                        </td>                        
+                        <td class="text-center">
+                            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                <button class="btn btn-sm btn-outline-primary edit-task rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 32px; height: 32px;"
+                                    data-task-id="{{ task_id }}"
+                                    data-task-name="{{ task.name }}"
+                                    data-task-description="{{ task.description }}"
+                                    data-task-due-date="{{ task.due_date }}"
+                                    data-task-status="{{ task.status }}"
+                                    data-task-assignees="{{ task.assignees|join(',') }}">
+                                    <i class="bi bi-pencil"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger delete-task rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 32px; height: 32px;"
+                                    data-task-id="{{ task_id }}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6" class="text-center py-4 text-muted">
+                            <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                            No tasks found
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

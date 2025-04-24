@@ -1,0 +1,24 @@
+<!-- Sidebar as Offcanvas for Mobile -->
+<div class="offcanvas-lg offcanvas-start" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="d-flex flex-column flex-shrink-0 p-3 bg-white shadow h-100" style="width: 200px; border-right: 1px solid rgba(0,0,0,.1);">
+        <img src="{{ url_for('static', filename='img/tsyp13.png') }}" alt="TSYP Logo" class="w-100 mb-3 d-flex align-items-center justify-content-center" >
+        <ul class="nav nav-pills flex-column mb-auto">
+            {% for t in teams %}
+            <li class="nav-item mb-1">
+                <a href="{{ url_for('dashboard', team=t) }}" 
+                   class="nav-link d-flex align-items-center rounded {% if team == t %}active bg-primary text-white{% else %}text-dark{% endif %}">
+                    <i class="bi {% if t == 'planning' %}bi-calendar-check
+                                {% elif t == 'challenge' %}bi-trophy
+                                {% elif t == 'media' %}bi-camera-video
+                                {% elif t == 'video' %}bi-play-circle
+                                {% elif t == 'design' %}bi-palette
+                                {% elif t == 'sponsoring' %}bi-gift
+                                {% elif t == 'funds' %}bi-wallet
+                                {% elif t == 'logistics' %}bi-truck{% endif %} me-2"></i>
+                    {{ t|capitalize }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

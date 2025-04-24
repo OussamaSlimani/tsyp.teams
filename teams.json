@@ -1,0 +1,929 @@
+{
+  "planning": {
+    "8698mj9ax": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Elaborate on the theme",
+      "status": "done",
+      "date_created": "1743971783854"
+    },
+    "8698mhckv": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Ethical/NGOs speakers",
+      "status": "to do",
+      "date_created": "1743961803785"
+    },
+    "8698mhavy": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Email automation sending and personalization",
+      "status": "to do",
+      "date_created": "1743961082769"
+    },
+    "8698mh7uh": {
+      "assignees": null,
+      "description": null,
+      "due_date": "1744513200000",
+      "name": "Identify the priority of speakers",
+      "status": "to do",
+      "date_created": "1743960053906"
+    },
+    "8698bf9xe": {
+      "assignees": [
+        "Mohammed Mahdi Bradai",
+        "Bilel Djemel"
+      ],
+      "description": null,
+      "due_date": "1742266800000",
+      "name": "Check planning from IEEE GHTC",
+      "status": "to validate",
+      "date_created": "1742133277370"
+    },
+    "8698b61fd": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Mentors online",
+      "status": "ideas",
+      "date_created": "1742033061509"
+    },
+    "86988cz6d": {
+      "assignees": null,
+      "description": "https://grok.com/?referrer=website",
+      "due_date": null,
+      "name": "Search with deep search",
+      "status": "ideas",
+      "date_created": "1741526483389"
+    },
+    "86987708b": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Cybernetics/Cyborgs/Augmentations",
+      "status": "ideas",
+      "date_created": "1741207747429"
+    },
+    "8698556t2": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Trading and ethics",
+      "status": "ideas",
+      "date_created": "1740861424959"
+    },
+    "86985565g": {
+      "assignees": null,
+      "description": "achievements related to networking activities\nFor SBs (example: number of  booth visitors)\nFor ambassadors",
+      "due_date": null,
+      "name": "Numerical Badge",
+      "status": "ideas",
+      "date_created": "1740861315772"
+    },
+    "8698555yt": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Round tables",
+      "status": "ideas",
+      "date_created": "1740861270559"
+    },
+    "8698555vz": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Self Branding",
+      "status": "ideas",
+      "date_created": "1740861246403"
+    },
+    "8698555pd": {
+      "assignees": null,
+      "description": "Domaine 3andou 3ale9a bel ethics",
+      "due_date": null,
+      "name": "explainable AI",
+      "status": "ideas",
+      "date_created": "1740861192258"
+    },
+    "8698554un": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Stand for inventions related to Theme",
+      "status": "ideas",
+      "date_created": "1740860946211"
+    },
+    "8698554j6": {
+      "assignees": null,
+      "description": "Success stories style TedX",
+      "due_date": null,
+      "name": "TedX",
+      "status": "ideas",
+      "date_created": "1740860859331"
+    },
+    "86985521p": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Scraping contacts automate mailing (Kayoum)",
+      "status": "ideas",
+      "date_created": "1740859425809"
+    },
+    "86985520c": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Budget lel speakers",
+      "status": "ideas",
+      "date_created": "1740859395443"
+    },
+    "8698551zm": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Application lel workshops",
+      "status": "ideas",
+      "date_created": "1740859381216"
+    },
+    "86985518h": {
+      "assignees": null,
+      "description": "el competition fel forum tsir 3ibaratan 3ala debate mabin les SBs\n\"Is True Utopia Possible, or Just a Futuristic Dream?\" - Examining whether an ethical, ideal society can ever be fully realized.",
+      "due_date": null,
+      "name": "Debates between SBs",
+      "status": "ideas",
+      "date_created": "1740859236300"
+    },
+    "8698550aw": {
+      "assignees": null,
+      "description": null,
+      "due_date": "1743130800000",
+      "name": "Final draft of speakers list",
+      "status": "to do",
+      "date_created": "1740858643426"
+    },
+    "869854xgf": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Define a detailed timeline for march with deadlines",
+      "status": "done",
+      "date_created": "1740857170937"
+    },
+    "869853cwf": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "DL preparation",
+      "status": "to do",
+      "date_created": "1740829235089"
+    },
+    "86983hh7z": {
+      "assignees": [
+        "Smaoui Imem",
+        "Emna Kammoun",
+        "Bilel Djemel",
+        "Siwar Gouirah",
+        "Rebai Ahmed",
+        "nour el houda laajili"
+      ],
+      "description": null,
+      "due_date": "1740841200000",
+      "name": "Establish core objectives and success criteria",
+      "status": "done",
+      "date_created": "1740517082560"
+    },
+    "86983hfwx": {
+      "assignees": null,
+      "description": null,
+      "due_date": "1741489200000",
+      "name": "First draft of speakers list",
+      "status": "in progress",
+      "date_created": "1740516556634"
+    },
+    "86983hftx": {
+      "assignees": [
+        "Smaoui Imem",
+        "Bilel Djemel",
+        "Emna Kammoun",
+        "Siwar Gouirah",
+        "Rebai Ahmed",
+        "nour el houda laajili"
+      ],
+      "description": null,
+      "due_date": "1744772400000",
+      "name": "Brainstorm ideas related to the theme (Panel discussion, debates, challenge ...) ",
+      "status": "on stand by",
+      "date_created": "1740516514465"
+    },
+    "86983hend": {
+      "assignees": null,
+      "description": null,
+      "due_date": "1744772400000",
+      "name": "Brainstorm workshop topics based on the theme Utopia",
+      "status": "in progress",
+      "date_created": "1740515964375"
+    },
+    "86983hejf": {
+      "assignees": [
+        "Bilel Djemel",
+        "Rebai Ahmed",
+        "nour el houda laajili"
+      ],
+      "description": null,
+      "due_date": "1742094000000",
+      "name": "Decide on main tracks (e.g., AI, Robotics, Ethics, Entrepreneurship)",
+      "status": "done",
+      "date_created": "1740515895066"
+    }
+  },
+  "challenge": {
+    "8698uf55q": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Form for SB chairs on Challenge Feedbacks",
+      "status": "to do",
+      "date_created": "1745356260461"
+    },
+    "8698uf550": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Meeting with Section Units",
+      "status": "to do",
+      "date_created": "1745356239715"
+    }
+  },
+  "media": {
+    "8698anhp3": {
+      "assignees": null,
+      "description": null,
+      "due_date": "1740224111924",
+      "name": "Presentation Template",
+      "status": "done",
+      "date_created": "1741931503572"
+    },
+    "869820rhe": {
+      "assignees": [
+        "Oussama Slimani"
+      ],
+      "description": null,
+      "due_date": "1740224111924",
+      "name": "template email",
+      "status": "done",
+      "date_created": "1740224132685"
+    },
+    "869820rd8": {
+      "assignees": [
+        "Mahdi Gouiaa"
+      ],
+      "description": null,
+      "due_date": "1740224111924",
+      "name": "signature des mails",
+      "status": "done",
+      "date_created": "1740224111924"
+    }
+  },
+  "design": {
+    "8698anhp3": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Presentation Template",
+      "status": "done",
+      "date_created": "1741931503572"
+    },
+    "869820rhe": {
+      "assignees": [
+        "Oussama Slimani "
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "template email",
+      "status": "done",
+      "date_created": "1740224132685"
+    },
+    "869820rd8": {
+      "assignees": [
+        "Mahdi Gouiaa"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "signature des mails",
+      "status": "done",
+      "date_created": "1740224111924"
+    }
+  },
+  "funds": {
+    "8698qkjpk": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "Proposal for Travel Grant",
+      "status": "in progress",
+      "date_created": "1744627587313"
+    },
+    "8698nkcmq": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "Email for WIE R8 Chair",
+      "status": "to do",
+      "date_created": "1744138054091"
+    },
+    "8698nkazq": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "MTTS",
+      "status": "to do",
+      "date_created": "1744137381268"
+    },
+    "8698nkahj": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "Email to PES",
+      "status": "to do",
+      "date_created": "1744137157991"
+    },
+    "8698nk9k3": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "Email to CS",
+      "status": "to do",
+      "date_created": "1744136856312"
+    },
+    "8698nk9fq": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "Email to braham",
+      "status": "done",
+      "date_created": "1744136830109"
+    },
+    "8698m6h4k": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "IAS Proposal",
+      "status": "in progress",
+      "date_created": "1743808988256"
+    },
+    "8698cfu2n": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "HTB Funding",
+      "status": "done",
+      "date_created": "1742309681071"
+    },
+    "8698cfu1e": {
+      "assignees": [
+        "Nadine Jellali",
+        "Hend Belkhiria"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "RAS Funding",
+      "status": "in progress",
+      "date_created": "1742309673669"
+    },
+    "86985c37c": {
+      "assignees": [
+        "Nadine Jellali",
+        "Hend Belkhiria"
+      ],
+      "description": null,
+      "due_date": "1746673200000",
+      "name": "WIE R8",
+      "status": "in progress",
+      "date_created": "1740910015277"
+    },
+    "86985c35w": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "CIS Fund",
+      "status": "to validate",
+      "date_created": "1740910005613"
+    },
+    "86985c34z": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "SPA X",
+      "status": "done",
+      "date_created": "1740909999025"
+    },
+    "86985c338": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "YP Fund",
+      "status": "on stand by",
+      "date_created": "1740909991525"
+    },
+    "86983u41u": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "IEEE Foundation",
+      "status": "done",
+      "date_created": "1740571927138"
+    },
+    "8697yztuh": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": null,
+      "due_date": null,
+      "name": "EMBS Fund",
+      "status": "done",
+      "date_created": "1739649598793"
+    },
+    "8697yx1jf": {
+      "assignees": [
+        "Nadine Jellali"
+      ],
+      "description": "Finalize the proposal this week",
+      "due_date": null,
+      "name": "IES Fund",
+      "status": "done",
+      "date_created": "1739629473574"
+    }
+  },
+  "logistics": {
+    "8698tzrwa": {
+      "assignees": [
+        "Marwa Chaari",
+        "Minyar Bougdar"
+      ],
+      "description": null,
+      "due_date": "1759114800000",
+      "name": "2nd call for logistics committee",
+      "status": "to do",
+      "date_created": "1745262612975"
+    },
+    "8698tzrk1": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1756695600000",
+      "name": "Fixing our primary logistics sponsors",
+      "status": "to do",
+      "date_created": "1745262504654"
+    },
+    "8698tzrjk": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1756350000000",
+      "name": "First visit to the hotels",
+      "status": "to do",
+      "date_created": "1745262492027"
+    },
+    "8698tzrj9": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1752721200000",
+      "name": "Logistics training session",
+      "status": "to do",
+      "date_created": "1745262476146"
+    },
+    "8698tzrj0": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1752462000000",
+      "name": "Launching the logistics committee",
+      "status": "to do",
+      "date_created": "1745262467073"
+    },
+    "8698tzrh8": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1751857200000",
+      "name": "Interviews",
+      "status": "to do",
+      "date_created": "1745262454240"
+    },
+    "8698tzrf2": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1751079600000",
+      "name": "Call for logistics committee",
+      "status": "to do",
+      "date_created": "1745262432704"
+    },
+    "8698tzr7h": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1744599600000",
+      "name": "Contacting selected addresses",
+      "status": "in progress",
+      "date_created": "1745262376794"
+    },
+    "8698tzqf1": {
+      "assignees": [
+        "Marwa Chaari",
+        "Minyar Bougdar"
+      ],
+      "description": null,
+      "due_date": "1741143600000",
+      "name": "Meeting with M. Wassim",
+      "status": "done",
+      "date_created": "1745262024139"
+    },
+    "8698tzq2e": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1739156400000",
+      "name": "Contacts Research",
+      "status": "in progress",
+      "date_created": "1745261858702"
+    },
+    "8698tzpxw": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari"
+      ],
+      "description": null,
+      "due_date": "1738897200000",
+      "name": "Logistics Managers meeting",
+      "status": "done",
+      "date_created": "1745261792518"
+    },
+    "869828gmx": {
+      "assignees": null,
+      "description": null,
+      "due_date": null,
+      "name": "Eco Friendly Welcome Packs",
+      "status": "ideas",
+      "date_created": "1740380492416"
+    },
+    "8697z6duh": {
+      "assignees": [
+        "Minyar Bougdar",
+        "Marwa Chaari",
+        "Mahdi Gouiaa"
+      ],
+      "description": null,
+      "due_date": "1742180400000",
+      "name": "Contact file preparation",
+      "status": "on stand by",
+      "date_created": "1739731015551"
+    }
+  },
+  "members": [
+    {
+      "username": "mohamed_bradai",
+      "fullName": "Mohamed Mahdi Bradai",
+      "Password": "mohamed-5456",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "siwar_gouirah",
+      "fullName": "Siwar Gouirah",
+      "Password": "siwar-1372",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "nadine_jellali",
+      "fullName": "Nadine Jellali",
+      "Password": "nadine-1005",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "oussama_slimani",
+      "fullName": "Oussama Slimani",
+      "Password": "oussama-3137",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "iheb_charfeddine",
+      "fullName": "Iheb Charfeddine",
+      "Password": "iheb-5268",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "bilel_djemel",
+      "fullName": "Bilel Djemel",
+      "Password": "bilel-7781",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "amir_abid",
+      "fullName": "Amir Abid",
+      "Password": "amir-1170",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "assil_bouaziz",
+      "fullName": "Assil Bouaziz",
+      "Password": "assil-8757",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "hend_belkhiria",
+      "fullName": "Hend Belkhiria",
+      "Password": "hend-3837",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "mohamed_samet",
+      "fullName": "Mohamed Hedi Samet",
+      "Password": "mohamed-3213",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "abir_grati",
+      "fullName": "Abir Grati",
+      "Password": "abir-9131",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "mohamed_gouiaa",
+      "fullName": "Mohamed Mahdi Gouiaa",
+      "Password": "mohamed-4151",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "wiem_boujelben",
+      "fullName": "Wiem Boujelben",
+      "Password": "wiem-8374",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "minyar_bougdar",
+      "fullName": "Minyar Bougdar",
+      "Password": "minyar-7822",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "marwa_chaari",
+      "fullName": "Marwa Chaari",
+      "Password": "marwa-4594",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "yessine_fakhfakh",
+      "fullName": "Yessine Fakhfakh",
+      "Password": "yessine-5501",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "tasnim_elleuch",
+      "fullName": "Tasnim Elleuch",
+      "Password": "tasnim-8454",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "hassen_rekik",
+      "fullName": "Hassen Rekik",
+      "Password": "hassen-8347",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "chams_chelly",
+      "fullName": "Chams Assil Chelly",
+      "Password": "chams-5751",
+      "team": [
+        "planning",
+        "challenge",
+        "media",
+        "video",
+        "design",
+        "sponsoring",
+        "funds",
+        "logistics"
+      ]
+    },
+    {
+      "username": "ahmed_jallouli",
+      "fullName": "Ahmed Jallouli",
+      "Password": "ahmed-7651",
+      "team": [
+        "sponsoring"
+      ]
+    },
+    {
+      "username": "amira_abid",
+      "fullName": "Amira Abid",
+      "Password": "amira-3555",
+      "team": [
+        "design"
+      ]
+    }
+  ]
+}

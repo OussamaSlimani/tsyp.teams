@@ -1,0 +1,72 @@
+body {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 200px;
+    background-color: white;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-content {
+    padding: 1rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-title {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.main-content {
+    margin-left: 200px;
+    height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+.content-scrollable {
+    overflow-y: auto;
+    height: calc(100vh - 56px); /* Subtract navbar height */
+}
+
+/* When sidebar is hidden */
+.sidebar.collapsed {
+    transform: translateX(-100%);
+}
+
+.sidebar.collapsed + .main-content {
+    margin-left: 0;
+}
+
+/* Mobile menu button */
+.menu-toggle {
+    transition: transform 0.3s ease;
+}
+
+.menu-toggle.rotated {
+    transform: rotate(90deg);
+}
+
+/* ** alert ** */
+.swal-sm {
+    font-size: 0.85rem;
+    padding: 1.1rem;
+}
+
+.swal-title-sm {
+    font-size: 1.2rem;
+}
+
+.swal-text-sm {
+    font-size: 1rem;
+}

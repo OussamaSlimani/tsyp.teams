@@ -1,0 +1,166 @@
+<!-- Task Modal -->
+<div class="modal fade" id="taskModal" tabindex="-1" aria-labelledby="taskModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title d-flex align-items-center gap-2" id="taskModalLabel">
+                    Add Task
+                </h5>
+                <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="taskForm">
+                    <input type="hidden" id="taskId" name="task_id">
+
+                    <div class="mb-3">
+                        <label for="taskName" class="form-label">Task Name</label>
+                        <input type="text" class="form-control" id="taskName" name="name" placeholder="Enter task name" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="taskDescription" class="form-label">Description</label>
+                        <textarea class="form-control" id="taskDescription" name="description" rows="3" placeholder="Write a short description..."></textarea>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="taskDueDate" class="form-label">Due Date</label>
+                            <input type="date" class="form-control" id="taskDueDate" name="due_date">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="taskStatus" class="form-label">Status</label>
+                            <select class="form-select" id="taskStatus" name="status" required>
+                                <option value="" disabled selected>Select status</option>
+                                <option value="idea">Idea</option>
+                                <option value="to do">To Do</option>
+                                <option value="in progress">In Progress</option>
+                                <option value="on stand by">On Stand By</option>
+                                <option value="to validate">To Validate</option>
+                                <option value="done">Done</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="form-label">Assignees</label>
+                        <div class="assignee-checkboxes border rounded p-3">
+                            {% for assignee in assignees %}
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" 
+                                    value="{{ assignee }}" 
+                                    id="assignee-{{ loop.index }}" 
+                                    name="assignees">
+                                <label class="form-check-label" for="assignee-{{ loop.index }}">
+                                    {{ assignee }}
+                                </label>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer bg-light">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle me-2"></i> Close
+                </button>
+                <button type="submit" form="taskForm" class="btn btn-success btn-sm" id="saveTask" disabled>
+                    <i class="bi bi-save me-2"></i> Save Task
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Resources Modal -->
+<div class="modal fade" id="resourcesModal" tabindex="-1" aria-labelledby="resourcesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resourcesModalLabel">{{team|capitalize}} Team Resources</h5>
+                <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addResourceModal">
+                        <i class="bi bi-plus-circle"></i> Add Resource
+                    </button>
+                </div>
+                
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>URL</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="resourcesTableBody">
+                            {% for resource_id, resource in resources.items() %}
+                            <tr>
+                                <td>{{ resource.name }}</td>
+                                <td><a href="{{ resource.url }}" target="_blank">{{ resource.url }}</a></td>
+                                <td>
+                                    <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                        <button class="btn btn-sm btn-outline-primary edit-resource rounded-circle d-flex align-items-center justify-content-center"
+                                                style="width: 32px; height: 32px;"
+                                                data-id="{{ resource_id }}"
+                                                data-name="{{ resource.name }}"
+                                                data-url="{{ resource.url }}">
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-outline-danger delete-resource rounded-circle d-flex align-items-center justify-content-center"
+                                                style="width: 32px; height: 32px;"
+                                                data-id="{{ resource_id }}">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>                                
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add Resource Modal -->
+<div class="modal fade" id="addResourceModal" tabindex="-1" aria-labelledby="addResourceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addResourceModalLabel">Add New Resource</h5>
+                <button type="button" class="btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="resourceForm">
+                <div class="modal-body">
+                    <input type="hidden" id="resourceId" name="resourceId">
+                    <div class="mb-3">
+                        <label for="resourceName" class="form-label">Resource Name</label>
+                        <input type="text" class="form-control" id="resourceName" name="resourceName" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="resourceUrl" class="form-label">Resource URL</label>
+                        <input type="url" class="form-control" id="resourceUrl" name="resourceUrl" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

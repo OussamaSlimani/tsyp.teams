@@ -26,24 +26,8 @@
                 <small class="text-muted">{{ session.username }}</small>
             </div>
 
-            <ul class="nav nav-pills flex-column mb-auto">
-                {% for t in teams %}
-                <li class="nav-item mb-1">
-                    <a href="{{ url_for('dashboard', team=t) }}"
-                        class="nav-link d-flex align-items-center rounded {% if team == t %}active bg-primary text-white{% else %}text-dark{% endif %}">
-                        <i class="bi {% if t == 'planning' %}bi-calendar-check
-                                    {% elif t == 'challenge' %}bi-trophy
-                                    {% elif t == 'media' %}bi-camera-video
-                                    {% elif t == 'video' %}bi-play-circle
-                                    {% elif t == 'design' %}bi-palette
-                                    {% elif t == 'sponsoring' %}bi-gift
-                                    {% elif t == 'funds' %}bi-wallet
-                                    {% elif t == 'logistics' %}bi-truck{% endif %} me-2"></i>
-                        {{ t|capitalize }}
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
+            {% include 'sidebar.html' %}
+            
         </div>
     </div>
 

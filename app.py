@@ -235,12 +235,22 @@ def create_task(team):
 
 @app.route('/api/tasks/<team>/<task_id>', methods=['PUT', 'DELETE'])
 @login_required
-
 def manage_task(team, task_id):
     if request.method == 'PUT':
         data = request.get_json()
         ref = db.reference(f"{team}/{task_id}")
-        ref.update(data)
+        
+        # Create a filtered update data that excludes due_date if it's NaN or None
+        update_data = {}
+        for key, value in data.items():
+            if key == 'due_date':
+                if value and value != 'NaN':  # Only include if it has a valid value
+                    update_data[key] = value
+                # else: skip this field entirely
+            else:
+                update_data[key] = value
+                
+        ref.update(update_data)
         return jsonify({'success': True})
 
     elif request.method == 'DELETE':

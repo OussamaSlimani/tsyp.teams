@@ -282,4 +282,4 @@ def manage_resource(team, resource_id):
         return jsonify({'success': True})
 
 if __name__ == '__main__':
-    app.run(debug=os.getenv('FLASK_DEBUG', 'False').lower() == 'true')
+    app.run(debug=True)

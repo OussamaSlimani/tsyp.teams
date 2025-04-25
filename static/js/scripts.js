@@ -1,37 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
     // sidebar toggle
     const sidebar = document.getElementById('sidebar');
     const mainContent = document.getElementById('mainContent');
     const menuToggle = document.getElementById('menuToggle');
     const menuIcon = document.getElementById('menuIcon');
 
+    window.addEventListener('DOMContentLoaded', function () {
+        if (window.innerWidth < 992) {
+            sidebar.classList.add('collapsed');
+            menuIcon.classList.remove('rotated');
+        }
+    });
+
     // Toggle sidebar
     menuToggle.addEventListener('click', function () {
         sidebar.classList.toggle('collapsed');
         menuIcon.classList.toggle('rotated');
-
-        // Store state in localStorage
-        const isCollapsed = sidebar.classList.contains('collapsed');
-        localStorage.setItem('sidebarCollapsed', isCollapsed);
-    });
-
-    // Check saved state
-    const savedState = localStorage.getItem('sidebarCollapsed');
-    if (savedState === 'true') {
-        sidebar.classList.add('collapsed');
-        menuIcon.classList.add('rotated');
-    }
-
-    // Close sidebar when clicking on a link (for mobile)
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function () {
-            if (window.innerWidth < 992) {
-                sidebar.classList.add('collapsed');
-                menuIcon.classList.remove('rotated');
-                localStorage.setItem('sidebarCollapsed', true);
-            }
-        });
     });
 
     // Get current team from URL

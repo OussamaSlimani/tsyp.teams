@@ -12,7 +12,6 @@
                 <i class="bi bi-plus-circle me-2"></i> Add Task
             </button>
         </div>
-
     </div>
 
     <div class="card-body">
@@ -59,19 +58,38 @@
                     <tr>
                         <th class="ps-4">Task Name</th>
                         <th>Description</th>
-                        <th>Due Date</th>
-                        <th>Status</th>
-                        <th>Assignees</th>
+                        <th >Due Date</th>
+                        <th >Status</th>
+                        <th class="text-center">Assignees</th>
                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for task_id, task in tasks.items() %}
-                    <tr class="align-middle">
-                        <td class="ps-4 fw-semibold">{{ task.name }}</td>
-                        <td class="text-muted">
+                    <tr class="align-middle" 
+                        >
+                        <td class="ps-4 fw-semibold" style="cursor: pointer;" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#taskDetailModal"
+                        data-task-id="{{ task_id }}"
+                        data-task-name="{{ task.name }}"
+                        data-task-description="{{ task.description }}"
+                        data-task-due-date="{{ task.due_date }}"
+                        data-task-status="{{ task.status }}"
+                        data-task-assignees="{{ task.assignees|join(',') }}"
+                        data-task-formatted-due-date="{{ task.formatted_due_date }}">{{ task.name }}</td>
+                        <td class="text-muted" style="cursor: pointer;" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#taskDetailModal"
+                        data-task-id="{{ task_id }}"
+                        data-task-name="{{ task.name }}"
+                        data-task-description="{{ task.description }}"
+                        data-task-due-date="{{ task.due_date }}"
+                        data-task-status="{{ task.status }}"
+                        data-task-assignees="{{ task.assignees|join(',') }}"
+                        data-task-formatted-due-date="{{ task.formatted_due_date }}">
                             {% if task.description %}
-                                {{ task.description|truncate(50) }}
+                                {{ task.description|truncate(80) }}
                             {% else %}
                                 No description
                             {% endif %}
@@ -111,18 +129,27 @@
                             </span>
                         </td>
                         <td>
-                            <div class="d-flex flex-wrap gap-2">
+                            <div style="min-width: 60px;">
                                 {% if task.assignees %}
-                                    {% for assignee in task.assignees %}
-                                    <span class="badge bg-light text-dark border d-flex align-items-center">
-                                        {{ assignee }}
-                                    </span>
+                                    {% for i in range(0, task.assignees|length, 5) %}
+                                        <div class="d-flex gap-2 justify-content-center mb-1">
+                                            {% for assignee in task.assignees[i:i+5] %}
+                                                {% set parts = assignee.split(' ') %}
+                                                {% set initials = (parts[0][0] + parts[-1][0]).upper() if parts|length > 1 else parts[0][0] %}
+                                                <span class="badge bg-light text-dark border rounded-circle d-flex align-items-center justify-content-center" 
+                                                      style="width: 28px; height: 28px;"
+                                                      title="{{ assignee }}">
+                                                    {{ initials }}
+                                                </span>
+                                            {% endfor %}
+                                        </div>
                                     {% endfor %}
                                 {% else %}
-                                    <span class="text-muted">No assignee</span>
+                                    <span class="text-muted">NA</span>
                                 {% endif %}
                             </div>
-                        </td>                        
+                        </td>
+                                              
                         <td class="text-center">
                             <div class="d-flex justify-content-center gap-2 flex-wrap">
                                 <button class="btn btn-sm btn-outline-primary edit-task rounded-circle d-flex align-items-center justify-content-center"
@@ -156,4 +183,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

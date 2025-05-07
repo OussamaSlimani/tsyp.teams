@@ -14,12 +14,14 @@
 
                     <div class="mb-3">
                         <label for="taskName" class="form-label">Task Name</label>
-                        <input type="text" class="form-control" id="taskName" name="name" placeholder="Enter task name" required>
+                        <input type="text" class="form-control" id="taskName" name="name" placeholder="Enter task name"
+                            required>
                     </div>
 
                     <div class="mb-3">
                         <label for="taskDescription" class="form-label">Description</label>
-                        <textarea class="form-control" id="taskDescription" name="description" rows="3" placeholder="Write a short description..."></textarea>
+                        <textarea class="form-control" id="taskDescription" name="description" rows="4"
+                            placeholder="Write a short description..."></textarea>
                     </div>
 
                     <div class="row g-3">
@@ -43,22 +45,66 @@
                     </div>
 
                     <div class="mt-4">
-                        <label class="form-label">Assignees</label>
-                        <div class="assignee-checkboxes border rounded p-3">
-                            {% for assignee in assignees %}
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" 
-                                    value="{{ assignee }}" 
-                                    id="assignee-{{ loop.index }}" 
-                                    name="assignees">
-                                <label class="form-check-label" for="assignee-{{ loop.index }}">
-                                    {{ assignee }}
-                                </label>
+                        <!-- Header with Select All button -->
+                        <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                            <label class="form-label mb-0">Assignees</label>
+                            <div class="d-flex align-items-center">
+                                <div>
+                                    <input type="text" class="form-control me-3" id="assigneeSearch" placeholder="Search assignees..." style="max-width: 400px;">
+                                </div>
+                                <!-- Select All Button -->
+                                <button type="button" class="btn btn-sm btn-outline-primary me-3" id="selectAllAssignees">
+                                    <i class="bi bi-check-all me-1"></i> Select All
+                                </button>
                             </div>
-                            {% endfor %}
+                        </div>
+                        
+                        
+
+                        
+                        <!-- Scrollable container for checkboxes -->
+                        <div class="assignee-checkboxes border rounded p-3" style="max-height: 300px; overflow-y: auto;">
+                            <div class="row g-2">
+                                {% for assignee in assignees|sort %}
+                                    <div class="col-6 col-md-4 col-lg-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input assignee-checkbox" type="checkbox" 
+                                                   value="{{ assignee }}" id="assignee-{{ loop.index }}" name="assignees">
+                                            <label class="form-check-label" for="assignee-{{ loop.index }}">
+                                                {{ assignee }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
+
+
+                    <script>
+                        document.getElementById('selectAllAssignees').addEventListener('click', function () {
+                            const checkboxes = document.querySelectorAll('.assignee-checkbox');
+                            const allChecked = Array.from(checkboxes).every(checkbox => checkbox.checked);
+                            checkboxes.forEach(checkbox => checkbox.checked = !allChecked);
+                            this.innerHTML = !allChecked
+                                ? '<i class="bi bi-x me-1"></i> Deselect All'
+                                : '<i class="bi bi-check-all me-1"></i> Select All';
+                        });
+                    </script>
+
+                    <!-- JavaScript for search functionality -->
+                    <script>
+                        document.getElementById("assigneeSearch").addEventListener("input", function () {
+                            const search = this.value.toLowerCase();
+                            document.querySelectorAll(".assignee-checkboxes .form-check").forEach(el => {
+                                const label = el.querySelector("label").textContent.toLowerCase();
+                                el.style.display = label.includes(search) ? "block" : "none";
+                            });
+                        });
+                    </script>
+
                 </form>
+
             </div>
             <div class="modal-footer bg-light">
                 <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
@@ -86,7 +132,7 @@
                         <i class="bi bi-plus-circle"></i> Add Resource
                     </button>
                 </div>
-                
+
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -103,20 +149,19 @@
                                 <td><a href="{{ resource.url }}" target="_blank">{{ resource.url }}</a></td>
                                 <td>
                                     <div class="d-flex justify-content-center gap-2 flex-wrap">
-                                        <button class="btn btn-sm btn-outline-primary edit-resource rounded-circle d-flex align-items-center justify-content-center"
-                                                style="width: 32px; height: 32px;"
-                                                data-id="{{ resource_id }}"
-                                                data-name="{{ resource.name }}"
-                                                data-url="{{ resource.url }}">
+                                        <button
+                                            class="btn btn-sm btn-outline-primary edit-resource rounded-circle d-flex align-items-center justify-content-center"
+                                            style="width: 32px; height: 32px;" data-id="{{ resource_id }}"
+                                            data-name="{{ resource.name }}" data-url="{{ resource.url }}">
                                             <i class="bi bi-pencil"></i>
                                         </button>
-                                        <button class="btn btn-sm btn-outline-danger delete-resource rounded-circle d-flex align-items-center justify-content-center"
-                                                style="width: 32px; height: 32px;"
-                                                data-id="{{ resource_id }}">
+                                        <button
+                                            class="btn btn-sm btn-outline-danger delete-resource rounded-circle d-flex align-items-center justify-content-center"
+                                            style="width: 32px; height: 32px;" data-id="{{ resource_id }}">
                                             <i class="bi bi-trash"></i>
                                         </button>
                                     </div>
-                                </td>                                
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -160,7 +205,119 @@
 </div>
 
 
+<!-- Task Detail Modal -->
+<div class="modal fade" id="taskDetailModal" tabindex="-1" aria-labelledby="taskDetailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="taskDetailModalLabel">Task Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <h2 id="detail-task-name" class="mb-3"></h2>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Description</h5>
+                                    <p id="detail-task-description" class="card-text"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Details</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span>Status:</span>
+                                            <span id="detail-task-status" class="badge rounded-pill"></span>
+                                        </li>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <span>Due Date:</span>
+                                            <span id="detail-task-due-date"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Assignees</h5>
+                                    <div id="detail-task-assignees" class="d-flex flex-wrap gap-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    
+<script>
+    // Initialize modal with task details
+    document.addEventListener('DOMContentLoaded', function () {
+        const taskDetailModal = document.getElementById('taskDetailModal');
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        if (taskDetailModal) {
+            taskDetailModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget; // Button that triggered the modal
+
+                // Extract task details from data attributes
+                const taskName = button.getAttribute('data-task-name');
+                const taskDescription = button.getAttribute('data-task-description') || 'No description provided';
+                const taskDueDate = button.getAttribute('data-task-formatted-due-date') || 'No due date';
+                const taskStatus = button.getAttribute('data-task-status');
+                const taskAssignees = button.getAttribute('data-task-assignees') ?
+                    button.getAttribute('data-task-assignees').split(',') : [];
+
+                // Update modal content
+                document.getElementById('detail-task-name').textContent = taskName;
+                document.getElementById('detail-task-description').textContent = taskDescription;
+
+                // Update status badge
+                const statusBadge = document.getElementById('detail-task-status');
+                statusBadge.textContent = taskStatus;
+                statusBadge.className = 'badge rounded-pill text-white text-capitalize ' +
+                    (taskStatus === 'done' ? 'bg-success' :
+                        taskStatus === 'in progress' ? 'bg-primary' :
+                            taskStatus === 'on stand by' ? 'bg-danger' :
+                                taskStatus === 'to validate' ? 'bg-warning' :
+                                    taskStatus === 'ideas' ? 'bg-info' : 'bg-secondary');
+
+                // Update due date
+                document.getElementById('detail-task-due-date').textContent = taskDueDate;
+
+                // Update assignees
+                const assigneesContainer = document.getElementById('detail-task-assignees');
+                assigneesContainer.innerHTML = '';
+
+                if (taskAssignees.length > 0) {
+                    taskAssignees.forEach(assignee => {
+                        const parts = assignee.split(' ');
+                        const initials = parts.length > 1 ?
+                            (parts[0][0] + parts[parts.length - 1][0]).toUpperCase() :
+                            parts[0][0].toUpperCase();
+
+                        const badge = document.createElement('span');
+                        badge.className = 'badge bg-light text-dark border rounded-pill d-flex align-items-center p-2';
+                        badge.title = assignee;
+                        badge.innerHTML = `
+                            <span class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-2" 
+                                  style="width: 24px; height: 24px;">
+                                ${initials}
+                            </span>
+                            ${assignee}
+                        `;
+                        assigneesContainer.appendChild(badge);
+                    });
+                } else {
+                    assigneesContainer.innerHTML = '<span class="text-muted">No assignees</span>';
+                }
+            });
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
